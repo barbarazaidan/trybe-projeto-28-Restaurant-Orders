@@ -27,3 +27,6 @@ class MenuBuilder:
     # Req 4
     def get_main_menu(self, restriction=None) -> List[Dict]:
         pass
+
+
+# é necessário que o método retorne uma lista de dicionários que contenham as chaves dish_name, ingredients, price e restrictions
