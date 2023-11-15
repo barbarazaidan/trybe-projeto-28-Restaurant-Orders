@@ -26,7 +26,28 @@ class MenuBuilder:
 
     # Req 4
     def get_main_menu(self, restriction=None) -> List[Dict]:
-        pass
+        menu_list = []
+
+        for dish in self.menu_data.dishes:
+            if (
+                restriction is None
+                or restriction not in dish.get_restrictions()
+            ):
+                menu_list.append(
+                    {
+                        "dish_name": dish.name,
+                        "ingredients": dish.get_ingredients(),
+                        "price": dish.price,
+                        "restrictions": dish.get_restrictions(),
+                    }
+                )
+
+        return menu_list
 
 
-# é necessário que o método retorne uma lista de dicionários que contenham as chaves dish_name, ingredients, price e restrictions
+# é necessário que o método retorne uma lista de dicionários
+# que contenham as chaves dish_name, ingredients, price e restrictions
+# o método get_main_menu retorna uma lista de dicionários
+# com o cardápio completo quando não é passado nenhum parâmetro;
+# e uma lista de dicionários com o cardápio correto
+# respeitando a restrição alimentar passada como parâmetro;
